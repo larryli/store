@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Console App
+ */
+require(__DIR__ . '/bootstrap.php');
+defined('STDIN') || define('STDIN', fopen('php://stdin', 'r'));
+defined('STDOUT') || define('STDOUT', fopen('php://stdout', 'w'));
+$env = new \janisto\environment\Environment(__DIR__ . '/config');
+$env->setup();
+$exitCode = (new yii\console\Application($env->console))->run();
+exit($exitCode);

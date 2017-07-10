@@ -1,0 +1,68 @@
+{
+    "name": "larryli/store",
+    "description": "Store",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "ext-gd": "*",
+        "ext-json": "*",
+        "ext-memcached": "*",
+        "ext-openssl": "*",
+        "ext-pdo_mysql": "*",
+        "almasaeed2010/adminlte": "*",
+        "fortawesome/font-awesome": "*",
+        "donatj/phpuseragentparser": "*",
+        "janisto/yii2-environment": "*",
+        "larryli/yii2-extras": "dev-master",
+        "yiisoft/yii2": "~2.0.10",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "scripts": {
+        "post-package-install": [
+            "php -r '@unlink(\"vendor/yiisoft/yii2/Yii.php\");'"
+        ],
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ]
+        }
+    },
+    "repositories": {
+        "yii2-extras": {
+            "type": "git",
+            "url": "https://github.com/larryli/yii2-extras.git"
+        },
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
