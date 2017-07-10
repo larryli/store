@@ -1,6 +1,6 @@
 <?php
 /**
- * 网站入口
+ * Website app
  */
 require(dirname(__DIR__) . '/bootstrap.php');
 $env = new \janisto\environment\Environment(dirname(__DIR__) . '/config');
