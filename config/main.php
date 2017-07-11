@@ -28,7 +28,9 @@ return [
                 'defaultRoles' => ['admin'],
             ],
             'cache' => [
-                'class' => \yii\caching\FileCache::class,
+                'class' => \yii\caching\MemCache::class,
+                'useMemcached' => true,
+                'keyPrefix' => 'store',
             ],
             'errorHandler' => [
                 'errorAction' => 'site/error',
@@ -79,7 +81,9 @@ return [
         'controllerNamespace' => 'app\commands',
         'components' => [
             'cache' => [
-                'class' => \yii\caching\FileCache::class,
+                'class' => \yii\caching\MemCache::class,
+                'useMemcached' => true,
+                'keyPrefix' => 'store',
             ],
             'i18n' => [
                 'translations' => [

@@ -19,10 +19,10 @@ return [
         'components' => [
             'db' => [
                 'class' => \yii\db\Connection::class,
-                'dsn' => 'mysql:host=localhost;dbname=website_dev',
+                'dsn' => 'mysql:host=localhost;dbname=store_dev',
                 'username' => 'root',
                 'password' => '',
-                'charset' => 'utf8',
+                'charset' => 'utf8mb4',
             ],
             'log' => [
                 'traceLevel' => 3,
@@ -65,10 +65,10 @@ return [
         'components' => [
             'db' => [
                 'class' => \yii\db\Connection::class,
-                'dsn' => 'mysql:host=localhost;dbname=website_dev',
+                'dsn' => 'mysql:host=localhost;dbname=store_dev',
                 'username' => 'root',
                 'password' => '',
-                'charset' => 'utf8',
+                'charset' => 'utf8mb4',
             ],
             'log' => [
                 'traceLevel' => 3,
