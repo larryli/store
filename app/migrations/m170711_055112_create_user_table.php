@@ -23,7 +23,6 @@ class m170711_055112_create_user_table extends Migration
             'password_hash' => $this->string()->notNull()->comment('Hashed password'),
             'auth_key' => $this->string(32)->notNull()->comment('Cookie auth key'),
             'state' => $this->smallInteger()->notNull()->defaultValue(0)->comment('User state'),
-            'locked' => $this->boolean()->notNull()->defaultValue(false)->comment('User locked state'),
             'created_at' => $this->integer()->notNull()->comment('Created timestamp'),
             'created_from' => $this->string()->notNull()->comment('Created ip'),
             'created_via' => $this->text()->notNull()->comment('Created user agent'),
@@ -40,13 +39,6 @@ class m170711_055112_create_user_table extends Migration
             'idx-user-state',
             '{{%user}}',
             'state'
-        );
-
-        // creates index for column `locked`
-        $this->createIndex(
-            'idx-user-locked',
-            '{{%user}}',
-            'locked'
         );
 
         // creates index for column `created_at`
@@ -91,12 +83,6 @@ class m170711_055112_create_user_table extends Migration
         // drops index for column `created_at`
         $this->dropIndex(
             'idx-user-created_at',
-            '{{%user}}'
-        );
-
-        // drops index for column `locked`
-        $this->dropIndex(
-            'idx-user-locked',
             '{{%user}}'
         );
 
